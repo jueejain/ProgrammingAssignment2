@@ -4,9 +4,9 @@
 ## Write a short comment describing this function
 
 makeCacheMatrix <- function(x = matrix()) {
-j<-NULL
+j<-NULL ##initialize j to null
 set<-function(y){
-        x<<- y
+        x<<- y ##set value of x to the passed arguement in the function
         j<<-NULL
 }
 get<-function()x
@@ -21,11 +21,11 @@ list(set=set,get=get,setInverse=setInverse,getInverse=getInverse)
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
-        j<-x$getInverse()
-        if(!is.null(j)){
+        j<-x$getInverse()##getting the inverse
+        if(!is.null(j)){ ##if inverse exists then directly return the cached data
                 return(j)
         }
-        mat<-x$get()
+        mat<-x$get() ##else get inverse of the matrix
         j<-solve(mat,...)
         x$setInverse(j)
         j
